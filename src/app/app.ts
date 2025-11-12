@@ -1,12 +1,28 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, SimpleChange } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Login } from './login/login';
+import { Singup } from './singup/singup';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  // imports: [Login, Singup],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('AngularAp');
+  count = 0;
+  decrement() {
+    this.count--;
+    if (this.count < 0) {
+      this.count = 0;
+    }
+    alert('counter can be negative');
+  }
+  increment() {
+    this.count++;
+  }
+  reset() {
+    this.count = 0;
+    alert('are you sure!');
+  }
 }
