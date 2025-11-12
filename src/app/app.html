@@ -2,8 +2,8 @@
 <div>
   <h2>{{ count }}</h2>
   <div>
-    <button class="btn" (click)="decrement()">Decrement</button>
-    <button class="btn" (click)="increment()">Increment</button>
-    <button class="btn" (click)="reset()">Reset</button>
+    <button class="btn" (click)="handleCounter(-1)">Decrement</button>
+    <button class="btn" (click)="handleCounter(1)">Increment</button>
+    <button class="btn" (click)="handleCounter(0)">Reset</button>
   </div>
 </div>

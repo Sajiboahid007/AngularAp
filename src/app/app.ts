@@ -25,4 +25,16 @@ export class App {
     this.count = 0;
     alert('are you sure!');
   }
+
+  public handleCounter(value: number) {
+    if (value === 0) {
+      this.count = 0;
+    } else {
+      this.count += value;
+      if (this.count < 0) {
+        this.count = 0;
+        alert('counter can be negative');
+      }
+    }
+  }
 }
