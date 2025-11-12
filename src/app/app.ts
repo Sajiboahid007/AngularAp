@@ -10,31 +10,9 @@ import { Singup } from './singup/singup';
   styleUrl: './app.css',
 })
 export class App {
-  count = 0;
-  decrement() {
-    this.count--;
-    if (this.count < 0) {
-      this.count = 0;
-    }
-    alert('counter can be negative');
-  }
-  increment() {
-    this.count++;
-  }
-  reset() {
-    this.count = 0;
-    alert('are you sure!');
-  }
+    color = 'red';
 
-  public handleCounter(value: number) {
-    if (value === 0) {
-      this.count = 0;
-    } else {
-      this.count += value;
-      if (this.count < 0) {
-        this.count = 0;
-        alert('counter can be negative');
-      }
+    public handleColor(value:string){
+      this.color = value;
     }
-  }
 }
