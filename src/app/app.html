@@ -1,9 +1,12 @@
-<h1>Counter App</h1>
-<div>
-  <h2>{{ count }}</h2>
-  <div>
-    <button class="btn" (click)="handleCounter(-1)">Decrement</button>
-    <button class="btn" (click)="handleCounter(1)">Increment</button>
-    <button class="btn" (click)="handleCounter(0)">Reset</button>
-  </div>
-</div>
+
+<h1>get input value and set</h1>
+<h2>User name is : {{showName}}</h2>
+
+<input type="text" (input)="getValue($event)" placeholder="enter name">
+<button (click)="displayName()" class="btn">click</button>
+
+<hr>
+<h2>Email</h2>
+<h3>Your mail is {{mail}}</h3>
+<input type="text" placeholder="email" #mailfiels>
+<button class="btn" (click)="email(mailfiels.value)">getEmail</button>
