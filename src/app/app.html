@@ -1,9 +1,26 @@
-<h1>Counter App</h1>
-<div>
-  <h2>{{ count }}</h2>
-  <div>
-    <button class="btn" (click)="handleCounter(-1)">Decrement</button>
-    <button class="btn" (click)="handleCounter(1)">Increment</button>
-    <button class="btn" (click)="handleCounter(0)">Reset</button>
-  </div>
-</div>
+<h1>if else condition</h1>
+
+
+<button class="btn" (click)="show()">show</button>
+<button class="btn"  (click)="hide()">hide</button>
+
+<button class="btn"  (click)="toggle()">toggle</button>
+
+<br>
+<hr>
+<hr>
+@if(display){
+  <div style="width: 150px; height: 150px; background-color: rgb(227, 165, 85);"></div>
+
+}
+
+<hr>
+<hr>
+<button class="btn" (click)="showBtn()">{{togglebtn? 'Show Green' : 'Show Red'}}</button>
+
+@if(togglebtn){
+  <div style="width: 200px;height: 200px; background-color: red;"></div>
+}
+@else{
+  <div style="width: 200px;height: 200px; background-color: rgb(88, 226, 46);"></div>
+}
