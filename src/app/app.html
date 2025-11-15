@@ -1,9 +1,24 @@
-<h1>Counter App</h1>
-<div>
-  <h2>{{ count }}</h2>
-  <div>
-    <button class="btn" (click)="handleCounter(-1)">Decrement</button>
-    <button class="btn" (click)="handleCounter(1)">Increment</button>
-    <button class="btn" (click)="handleCounter(0)">Reset</button>
-  </div>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Serial</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Mail</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(item of students; track item.name; let id = $index) {
+      <tr>
+        <td>{{id + 1}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.age}}</td>
+        <td>{{item.email}}</td>
+        <td>
+          <button (click)="getmail(item?.email ?? '')">Get Mail</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

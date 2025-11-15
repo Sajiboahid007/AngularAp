@@ -10,31 +10,15 @@ import { Singup } from './singup/singup';
   styleUrl: './app.css',
 })
 export class App {
-  count = 0;
-  decrement() {
-    this.count--;
-    if (this.count < 0) {
-      this.count = 0;
-    }
-    alert('counter can be negative');
-  }
-  increment() {
-    this.count++;
-  }
-  reset() {
-    this.count = 0;
-    alert('are you sure!');
-  }
+  students =[
+    {name:'Sajib',age:23,email:'sajib@gmail'},
+    {name:'Sam',age:23,email:'Sam@gmail'},
+    {name:'john',age:23,email:'johnb@gmail'},
+    {name:'wick',age:23,email:'wick@gmail'},
+    {name:'peter',age:23,email:'peterb@gmail'}
+  ]
 
-  public handleCounter(value: number) {
-    if (value === 0) {
-      this.count = 0;
-    } else {
-      this.count += value;
-      if (this.count < 0) {
-        this.count = 0;
-        alert('counter can be negative');
-      }
-    }
+  getmail(mail:string){
+    console.log(mail);
   }
 }
