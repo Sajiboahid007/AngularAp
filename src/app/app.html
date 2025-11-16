@@ -1,9 +1,10 @@
-<h1>Counter App</h1>
+<h1>Effect</h1>
 <div>
-  <h2>{{ count }}</h2>
-  <div>
-    <button class="btn" (click)="handleCounter(-1)">Decrement</button>
-    <button class="btn" (click)="handleCounter(1)">Increment</button>
-    <button class="btn" (click)="handleCounter(0)">Reset</button>
-  </div>
+<h2>{{count()}}</h2>
+<button (click)="userName.set('Shakil')">Set Shakil</button>
+<button (click)="userName.set('Sajib')">Set Sajib</button>
 </div>
+<button (click)='showHeading()'>show Heding</button>
+@if(heading){
+<h2 style="background-color: bisque; text-align: center;">Page Heading</h2>
+}

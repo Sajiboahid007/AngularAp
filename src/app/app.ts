@@ -1,4 +1,4 @@
-import { Component, signal, SimpleChange } from '@angular/core';
+import { Component, effect, signal, SimpleChange } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { Singup } from './singup/singup';
@@ -10,31 +10,20 @@ import { Singup } from './singup/singup';
   styleUrl: './app.css',
 })
 export class App {
-  count = 0;
-  decrement() {
-    this.count--;
-    if (this.count < 0) {
-      this.count = 0;
-    }
-    alert('counter can be negative');
-  }
-  increment() {
-    this.count++;
-  }
-  reset() {
-    this.count = 0;
-    alert('are you sure!');
-  }
+ userName = signal('Sajib');
+count = signal(0);
+ heading = false;
 
-  public handleCounter(value: number) {
-    if (value === 0) {
-      this.count = 0;
-    } else {
-      this.count += value;
-      if (this.count < 0) {
-        this.count = 0;
-        alert('counter can be negative');
-      }
-    }
-  }
+ constructor(){
+  effect(()=>{
+   if(this.count()==2){
+      this.heading=true;
+   }else
+    this.heading=false
+  })
+ }
+
+ showHeading(){
+  this.count.set(this.count()+1);
+ }
 }
