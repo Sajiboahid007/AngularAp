@@ -1,7 +1,8 @@
-import { Component, signal, SimpleChange } from '@angular/core';
+import { Component, computed, signal, SimpleChange } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { Singup } from './singup/singup';
+import { single } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,31 +11,13 @@ import { Singup } from './singup/singup';
   styleUrl: './app.css',
 })
 export class App {
-  count = 0;
-  decrement() {
-    this.count--;
-    if (this.count < 0) {
-      this.count = 0;
-    }
-    alert('counter can be negative');
-  }
-  increment() {
-    this.count++;
-  }
-  reset() {
-    this.count = 0;
-    alert('are you sure!');
-  }
+    firstValue = signal(20);
+    secondValue = signal(30);
+    result = computed (()=> this.firstValue() + this.secondValue());
 
-  public handleCounter(value: number) {
-    if (value === 0) {
-      this.count = 0;
-    } else {
-      this.count += value;
-      if (this.count < 0) {
-        this.count = 0;
-        alert('counter can be negative');
-      }
+    showValue(){
+      console.log(this.result());
+      this.firstValue.set(50);
+      console.log(this.result())
     }
-  }
 }
