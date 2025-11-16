@@ -1,9 +1,31 @@
-<h1>Counter App</h1>
-<div>
-  <h2>{{ count }}</h2>
-  <div>
-    <button class="btn" (click)="handleCounter(-1)">Decrement</button>
-    <button class="btn" (click)="handleCounter(1)">Increment</button>
-    <button class="btn" (click)="handleCounter(0)">Reset</button>
-  </div>
-</div>
+<h1>for loop contextial</h1>
+
+@for(item of user; track item){
+  <h3>{{$index+1}} {{item}}</h3>
+}
+<h2>first value</h2>
+@for(item of user; track item){
+  @if($first){
+    <h3>{{item}}</h3>
+  }
+}
+<h2>last value</h2>
+@for(item of user; track item){
+  @if($last){
+    <h3>{{item}}</h3>
+  }
+}
+
+<h2>Odd even</h2>
+@for(item of user; track item){
+  @if($odd){
+    <h3 style="color: #534040;">{{item}}</h3>
+  }
+}
+
+<h2>Odd even</h2>
+@for(item of user; track item){
+  @if($even){
+    <h3 style="color: rgb(223, 136, 30);">{{item}}</h3>
+  }
+}
