@@ -2,39 +2,50 @@ import { Component, signal, SimpleChange } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { Singup } from './singup/singup';
+import { FormsModule } from '@angular/forms';
+
+interface ToDo {
+  id: number, doList: string
+}
 
 @Component({
   selector: 'app-root',
-  // imports: [Login, Singup],
+  imports: [FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
+
+
+
 export class App {
-  count = 0;
-  decrement() {
-    this.count--;
-    if (this.count < 0) {
-      this.count = 0;
-    }
-    alert('counter can be negative');
-  }
-  increment() {
-    this.count++;
-  }
-  reset() {
-    this.count = 0;
-    alert('are you sure!');
+  task = '';
+  toDoList: ToDo[] = [];
+
+  taskList() {
+    this.toDoList.push({ id: this.toDoList.length + 1, doList: this.task });
+    this.task = '';
   }
 
-  public handleCounter(value: number) {
-    if (value === 0) {
-      this.count = 0;
-    } else {
-      this.count += value;
-      if (this.count < 0) {
-        this.count = 0;
-        alert('counter can be negative');
+  removeByForLoop(id: number) {
+    let todo: ToDo[] = [];
+    for (let index = 0; index < this.toDoList.length; index++) {
+      const element = this.toDoList[index];
+      if (element.id === id) {
+        continue;
       }
+      todo.push(element);
     }
+
+    this.toDoList = todo;
+  }
+
+  delete(id: number) {
+    // this.toDoList.
+    //this.removeByForLoop(id);
+    this.toDoList = this.toDoList.filter( item => item.id !== id);
+
+    // this.toDoList = this.toDoList.filter((item) => {
+    //   return item.id !== id;
+    // })
   }
 }
