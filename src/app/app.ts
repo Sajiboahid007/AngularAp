@@ -2,39 +2,19 @@ import { Component, signal, SimpleChange } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { Singup } from './singup/singup';
+import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
-  // imports: [Login, Singup],
+  imports: [NgIf],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {
-  count = 0;
-  decrement() {
-    this.count--;
-    if (this.count < 0) {
-      this.count = 0;
-    }
-    alert('counter can be negative');
-  }
-  increment() {
-    this.count++;
-  }
-  reset() {
-    this.count = 0;
-    alert('are you sure!');
-  }
 
-  public handleCounter(value: number) {
-    if (value === 0) {
-      this.count = 0;
-    } else {
-      this.count += value;
-      if (this.count < 0) {
-        this.count = 0;
-        alert('counter can be negative');
-      }
-    }
-  }
+
+
+export class App {
+ show = false
 }
