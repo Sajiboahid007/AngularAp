@@ -2,39 +2,27 @@ import { Component, signal, SimpleChange } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { Singup } from './singup/singup';
+import { NgSwitch, NgSwitchCase } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  // imports: [Login, Singup],
+  imports: [NgSwitch,NgSwitchCase],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
-  count = 0;
-  decrement() {
-    this.count--;
-    if (this.count < 0) {
-      this.count = 0;
-    }
-    alert('counter can be negative');
-  }
-  increment() {
-    this.count++;
-  }
-  reset() {
-    this.count = 0;
-    alert('are you sure!');
+
+    color = "green";
+
+    colors = ["red", "green", "blue", "yellow"];
+  index = 0;
+
+  get nextColor() {
+    return this.colors[(this.index + 1) % this.colors.length];
   }
 
-  public handleCounter(value: number) {
-    if (value === 0) {
-      this.count = 0;
-    } else {
-      this.count += value;
-      if (this.count < 0) {
-        this.count = 0;
-        alert('counter can be negative');
-      }
-    }
+  changeColor() {
+    this.index = (this.index + 1) % this.colors.length;
+    this.color = this.colors[this.index];
   }
 }
